@@ -1,5 +1,4 @@
 import os 
-from threading import Thread
 import random
 
 def estimate_pi(num_points):
@@ -21,15 +20,14 @@ def estimate_pi(num_points):
 
 
 
+print("start mtpi")
 
-
-#num_points = 1000000  # 增加点的数量可以提高估计的准确性
-#pi_estimate = estimate_pi(num_points)
 
 if __name__ == "__main__":
+    from threading import Thread
     pid = os.getpid()
     print(f"The process ID is: {pid}") 
-    threads = [ Thread(target = estimate_pi, args = (100000000, )) for _ in range(6)] 
+    threads = [ Thread(target = estimate_pi, args = (10000000, )) for _ in range(6)] 
 
     for thread in threads:
         thread.start()
@@ -37,3 +35,7 @@ if __name__ == "__main__":
     for thread in threads:
         thread.join()
 
+else : 
+    num_points = 1000000  # 增加点的数量可以提高估计的准确性
+    print("try to estimate pi", num_points)
+    #pi_estimate = estimate_pi(num_points)
