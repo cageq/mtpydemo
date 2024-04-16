@@ -9,6 +9,7 @@ def spinner():
     while ACTIVE:
         current_thread_obj = threading.current_thread()
         thread_id = current_thread_obj.ident
+        time.sleep(0.01)
         print(f"The ID of the current thread is: {thread_id}")
         #pass
 
