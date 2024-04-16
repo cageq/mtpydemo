@@ -19,7 +19,7 @@ void create_task(int index ){
             PyEnsureGilState ensureGil; 
             //py::print("sub task from python"); // use the Python API
             try {
-                    py::module_ mtpy= py::module_::import("mtpi");
+                    py::module_ mtpy= py::module_::import("mtpi");//python  just import once ,don't execute code when import 
                     mtpy.attr("estimate_pi")(100000000); 
                     std::cout << "after to execute subtask" << index  << std::endl; 
                 }catch (py::error_already_set &e){
